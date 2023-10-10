@@ -17,7 +17,7 @@ app.get('/', async (req, res) => {
     const publicHostnameResponse = await axios.get('http://169.254.169.254/latest/meta-data/public-hostname')
     const publicIpResponse = await axios.get('http://169.254.169.254/latest/meta-data/public-ipv4')
     const localIpResponse = await axios.get('http://169.254.169.254/latest/meta-data/local-ipv4')
-    const localHostnameResponse = await axios.get('http://169.254.169.254/latest/meta-data/local-hostname')
+    const localHostnameResponse = await axios.get('http://169.254.169.254/latest/meta-data/hostname')
 
     const instanceId = ec2IdResponse.data;
     const azId = azResponse.data
