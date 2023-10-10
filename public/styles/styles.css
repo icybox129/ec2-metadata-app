@@ -44,7 +44,7 @@ body {
   }
 
 .box {
-    width: 100%;
+    width: auto;
     /* display: grid; */
     grid-template-columns: 1fr 1fr 300px;
     grid-column-gap: 10px;

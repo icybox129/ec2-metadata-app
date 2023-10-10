@@ -11,7 +11,7 @@ app.use(express.static("public"));
 app.get('/', async (req, res) => {
   try {
     // Fetch the EC2 instance ID from the instance metadata http://169.254.169.254/latest/meta-data/placement/availability-zone
-    const ec2IdResponse = await axios.get('http://169.254.169.254/latest/meta-data/placement/availability-zone');
+    const ec2IdResponse = await axios.get('http://169.254.169.254/latest/meta-data/instance-id');
     const azResponse = await axios.get('http://169.254.169.254/latest/meta-data/placement/availability-zone')
     const regionResponse = await axios.get('http://169.254.169.254/latest/meta-data/placement/region')
     const publicHostnameResponse = await axios.get('http://169.254.169.254/latest/meta-data/public-hostname')
