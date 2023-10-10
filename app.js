@@ -16,16 +16,13 @@ app.get('/', async (req, res) => {
     const regionResponse = await axios.get('http://169.254.169.254/latest/meta-data/placement/region')
     const publicHostnameResponse = await axios.get('http://169.254.169.254/latest/meta-data/public-hostname')
     const publicIpResponse = await axios.get('http://169.254.169.254/latest/meta-data/public-ipv4')
-    const localIpResponse = await axios.get('http://169.254.169.254/latest/meta-data/local-ipv4')
-    const localHostnameResponse = await axios.get('http://169.254.169.254/latest/meta-data/hostname')
+
 
     const instanceId = ec2IdResponse.data;
     const azId = azResponse.data
     const regionId = regionResponse.data
     const publicHostnameId = publicHostnameResponse.data
     const publicIpId = publicIpResponse.data
-    const localIpId = localIpResponse.data
-    const localHostnameId = localHostnameResponse.data
 
 
     // Send the instance ID as a response
@@ -36,8 +33,6 @@ app.get('/', async (req, res) => {
       regionId: regionId,
       publicHostnameId: publicHostnameId,
       publicIpId: publicIpId,
-      localIpId: localIpId,
-      localHostnameId: localHostnameId,
     })
   } catch (error) {
     console.error('Error fetching instance ID:', error);
