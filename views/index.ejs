@@ -3,12 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/styles.css">
     <title>EC2 Metadata</title>
 </head>
 <body>
-    <h2>Instance ID:</h2>
-    <p><%= instanceId %></p>
-    <h2>Availability Zone:</h2>
-    <p><%= azId %></p>
+    <div class="container">
+        <div class="box">
+            <h2>Instance ID:</h2>
+            <p><%= instanceId %></p>
+            <br>
+            <h2>Region:</h2>
+            <p><%= regionId %></p>
+            <br>
+            <h2>Availability Zone:</h2>
+            <p><%= azId %></p>
+            <br>
+            <h2>Public Hostname:</h2>
+            <p><%= publicHostnameId %></p>
+            <br>
+            <h2>Public IPv4:</h2>
+            <p><%= publicIpId %></p>
+            <br>
+            <h2>Local IPv4:</h2>
+            <p><%= localIpId %></p>
+
+
+        </div>
+    </div>
+
 </body>
 </html>
