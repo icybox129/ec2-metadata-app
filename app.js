@@ -4,7 +4,7 @@ import http from "http";
 
 const app = express();
 const server = http.createServer(app);
-const PORT = 3000;
+const PORT = 80;
 
 app.use(express.static("public"));
 
