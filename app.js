@@ -11,12 +11,14 @@ app.use(express.static("public"));
 app.get('/', async (req, res) => {
   try {
     // Fetch the EC2 instance ID from the instance metadata http://169.254.169.254/latest/meta-data/instance-id
-    const response = await axios.get('http://169.254.169.254/latest/meta-data/instance-id');
-    const instanceId = response.data;
+    const ec2IdResponse = await axios.get('http://169.254.169.254/latest/meta-data/instance-id');
+    const azResponse = await axios.get('http://169.254.169.254/latest/meta-data/placement/availability-zone')
+    const instanceId = ec2IdResponse.data;
+    const azId = azResponse.data
 
     // Send the instance ID as a response
     // res.send(`<h1>EC2 Instance ID:</h1><p>${instanceId}</p>`);
-    res.render("index.ejs", {instanceId: instanceId})
+    res.render("index.ejs", {instanceId: instanceId, azId: azId})
   } catch (error) {
     console.error('Error fetching instance ID:', error);
     // res.status(500).send('Error fetching instance ID');
